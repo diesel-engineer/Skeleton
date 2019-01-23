@@ -40,7 +40,8 @@ public class RecyclerViewSkeletonScreen implements SkeletonScreen {
 
     @Override
     public void hide() {
-        mRecyclerView.setAdapter(mActualAdapter);
+        if (mRecyclerView.getAdapter() != mActualAdapter)
+            mRecyclerView.setAdapter(mActualAdapter);
     }
 
     public static class Builder {
